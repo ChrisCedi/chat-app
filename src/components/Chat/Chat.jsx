@@ -34,7 +34,7 @@ const Chat = () => {
                   {item.message}
                 </Typography>
                 <Typography variant="caption" className={classes.hour}>
-                  {format(new Date(item.dateMesage), "hh:mm")}
+                  {format(new Date(item.dateMesage), "hh:mm aaaaa'm'")}
                 </Typography>
               </Box>
             </Box>
@@ -48,7 +48,7 @@ const Chat = () => {
                   {item.message}
                 </Typography>
                 <Typography variant="caption" className={classes.hour}>
-                  {format(new Date(item.dateMesage), "hh:mm")}
+                  {format(new Date(item.dateMesage), "hh:mm aaaaa'm'")}
                 </Typography>
               </Box>
             </Box>

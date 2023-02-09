@@ -46,7 +46,7 @@ const ChatDrawer = () => {
           }}
         >
           <Typography>Cerrar sesión</Typography>
-          <MeetingRoomIcon />
+          <MeetingRoomIcon color="primary" />
         </CardActionArea>
       </Box>
     </Drawer>
