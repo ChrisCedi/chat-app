@@ -6,11 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 import { routes } from "./routes";
-import { useContext, useEffect } from "react";
-import { ChatContext } from "../context/ChatProvider";
 
 const Navigation = () => {
-  const { user } = useContext(ChatContext);
   const { login, chat } = routes;
   const accessed = localStorage.getItem("token");
 
