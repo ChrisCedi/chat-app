@@ -12,8 +12,6 @@ const ChatProvider = ({ children }) => {
     handleChangeUser();
   }, []);
 
-  console.log(messages);
-
   const handleChangeUser = () => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -58,18 +56,21 @@ const ChatProvider = ({ children }) => {
   };
 
   const loadMessages = () => {
-    db.collection("chat").onSnapshot((query) => {
-      const responseMessages = query.docs.map((item) => item.data());
-      setMessages(responseMessages);
-    });
+    db.collection("chat")
+      .orderBy("dateMesage")
+      .onSnapshot((query) => {
+        const responseMessages = query.docs.map((item) => item.data());
+        setMessages(responseMessages);
+      });
   };
 
-  const addMessage = async (uid, messageInput) => {
+  const addMessage = async (uid, messageInput, name) => {
     try {
       await db.collection("chat").add({
         dateMesage: Date.now(),
         message: messageInput,
         id: uid,
+        username: name,
       });
     } catch (error) {
       console.log(error);
@@ -78,9 +79,9 @@ const ChatProvider = ({ children }) => {
 
   const contextValue = {
     user,
+    messages,
     loginUser,
     logout,
-    messages,
     addMessage,
   };
 

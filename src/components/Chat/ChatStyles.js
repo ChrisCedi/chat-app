@@ -80,6 +80,9 @@ const useStyles = makeStyles((theme) => ({
   },
   boxChat: {
     paddingTop: theme.spacing(7),
+    height: "80vh",
+    overflowY: "scroll",
+    // marginBottom: theme.spacing(10),
   },
 }));
 
