@@ -22,8 +22,9 @@ const Login = ({ width }) => {
 
           <Button
             className={classes.button}
-            variant="outlined"
+            variant="contained"
             onClick={loginUser}
+            color="primary"
           >
             <Typography>Ingresar con Google</Typography>
             <img src={Images.GoogleIcon} className={classes.gIcon} alt="icon" />
@@ -47,8 +48,9 @@ const Login = ({ width }) => {
 
             <Button
               className={classes.button}
-              variant="outlined"
+              variant="contained"
               onClick={loginUser}
+              color="primary"
             >
               <Typography>Ingresar con Google</Typography>
               <img

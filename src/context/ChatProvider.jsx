@@ -44,6 +44,7 @@ const ChatProvider = ({ children }) => {
 
       if (idToken) {
         localStorage.setItem("token", idToken);
+        window.location.reload();
       }
     } catch (error) {
       console.log(error);
@@ -53,10 +54,11 @@ const ChatProvider = ({ children }) => {
   const logout = () => {
     auth.signOut();
     localStorage.removeItem("token");
+    window.location.reload();
   };
 
   const loadMessages = () => {
-    db.collection("chat")
+    db.collection("chat2")
       .orderBy("dateMesage")
       .onSnapshot((query) => {
         const responseMessages = query.docs.map((item) => item.data());
@@ -66,7 +68,7 @@ const ChatProvider = ({ children }) => {
 
   const addMessage = async (uid, messageInput, name) => {
     try {
-      await db.collection("chat").add({
+      await db.collection("chat2").add({
         dateMesage: Date.now(),
         message: messageInput,
         id: uid,

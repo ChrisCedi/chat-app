@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
+    backgroundColor: theme.palette.common.white,
   },
   title: {
     color: "#6C63FF",
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   description: {
-    paddingBottom: theme.spacing(2),
+    paddingBottom: theme.spacing(3),
     textAlign: "center",
   },
   gridImage: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     boxShadow: "5px 5px 5px #aaaaaa",
     textTransform: "none",
+    padding: theme.spacing(1),
   },
   gIcon: {
     width: "25px",
@@ -59,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
   },
   imageMobile: {
     zIndex: 1,
-    paddingTop: theme.spacing(1),
-    width: "60%",
+    paddingTop: theme.spacing(4),
+    width: "62%",
   },
 }));
 
