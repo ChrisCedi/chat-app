@@ -16,14 +16,21 @@ const useStyles = makeStyles((theme) => ({
   },
   logout: {
     padding: theme.spacing(2),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
     "&:hover": {
       backgroundImage: "linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)",
     },
     cursor: "pointer",
   },
+  boxDrawer: {
+    padding: theme.spacing(2),
+  },
   boxProfile: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
   },
 }));
 

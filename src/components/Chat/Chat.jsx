@@ -26,7 +26,7 @@ const Chat = () => {
               parecer este ya no se rompio, sigo probando, hastaa qui todo bien,
               ajkind sdjn cs dksd ckjs dkjd jch sj xje rvñwe vwejkr vhje
             </Typography>
-            <Typography className={classes.hour}>1230</Typography>
+            <Typography className={classes.hour}>12:30</Typography>
           </Box>
         </Box>
         <Box className={classes.boxLeft}>
@@ -34,7 +34,7 @@ const Chat = () => {
             <Typography className={classes.message}>
               Hola soy receptor
             </Typography>
-            <Typography className={classes.hour}>1230</Typography>
+            <Typography className={classes.hour}>12:30</Typography>
           </Box>
         </Box>
         <InputMessage />

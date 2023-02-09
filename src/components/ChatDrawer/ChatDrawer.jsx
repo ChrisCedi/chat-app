@@ -11,15 +11,13 @@ import { useStyles } from "./ChatDrawerStyles";
 import { HeaderContext } from "../Header/HeaderProvider";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { ChatContext } from "../../context/ChatProvider";
+import MeetingRoomIcon from "@material-ui/icons/MeetingRoom";
 
 const ChatDrawer = () => {
   const classes = useStyles();
   const { open, handleClose } = useContext(HeaderContext);
 
-  const {
-    logout,
-    user: { username, avatar },
-  } = useContext(ChatContext);
+  const { logout, user } = useContext(ChatContext);
 
   return (
     <Drawer
@@ -32,21 +30,23 @@ const ChatDrawer = () => {
         paper: classes.drawerPaper,
       }}
     >
-      <Box>
+      <Box className={classes.boxDrawer}>
         <IconButton onClick={handleClose}>
           <ArrowBackIosIcon />
         </IconButton>
         <Box className={classes.boxProfile}>
-          <Typography className={classes.username}>{username}</Typography>
-          <Avatar src={avatar} />
+          <Typography className={classes.username}>{user.username}</Typography>
+          <Avatar src={user.avatar} alt="file" />
         </Box>
         <CardActionArea
+          className={classes.logout}
           onClick={() => {
             logout();
             handleClose();
           }}
         >
-          <Typography className={classes.logout}>Cerrar sesión</Typography>
+          <Typography>Cerrar sesión</Typography>
+          <MeetingRoomIcon />
         </CardActionArea>
       </Box>
     </Drawer>
