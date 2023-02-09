@@ -6,6 +6,7 @@ import { Header } from "../Header/Header";
 import clsx from "clsx";
 import { HeaderContext } from "../Header/HeaderProvider";
 import { ChatContext } from "../../context/ChatProvider";
+import { format } from "date-fns";
 
 const Chat = () => {
   const classes = useStyles();
@@ -33,7 +34,7 @@ const Chat = () => {
                   {item.message}
                 </Typography>
                 <Typography variant="caption" className={classes.hour}>
-                  12:30
+                  {format(new Date(item.dateMesage), "hh:mm")}
                 </Typography>
               </Box>
             </Box>
@@ -47,7 +48,7 @@ const Chat = () => {
                   {item.message}
                 </Typography>
                 <Typography variant="caption" className={classes.hour}>
-                  12:30
+                  {format(new Date(item.dateMesage), "hh:mm")}
                 </Typography>
               </Box>
             </Box>
