@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useMemo } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { db, auth, provider } from "../firebase";
 
 export const ChatContext = createContext();
@@ -76,16 +76,13 @@ const ChatProvider = ({ children }) => {
     }
   };
 
-  const contextValue = useMemo(
-    () => ({
-      user,
-      loginUser,
-      logout,
-      messages,
-      addMessage,
-    }),
-    [user]
-  );
+  const contextValue = {
+    user,
+    loginUser,
+    logout,
+    messages,
+    addMessage,
+  };
 
   return (
     <ChatContext.Provider value={contextValue}>{children}</ChatContext.Provider>
