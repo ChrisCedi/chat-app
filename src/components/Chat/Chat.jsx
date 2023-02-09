@@ -1,14 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useStyles } from "./ChatStyles";
 import { Box, Typography } from "@material-ui/core";
 import { InputMessage } from "../InputMessage/InputMessage";
 import { Header } from "../Header/Header";
 import clsx from "clsx";
 import { HeaderContext } from "../Header/HeaderProvider";
+import { ChatContext } from "../../context/ChatProvider";
+import { format } from "date-fns";
 
 const Chat = () => {
   const classes = useStyles();
   const { open } = useContext(HeaderContext);
+  const { messages, user } = useContext(ChatContext);
+  const chatRef = useRef(null);
+
+  useEffect(() => {
+    chatRef.current.scrollTop = chatRef.current.scrollHeight;
+  }, [messages]);
 
   return (
     <div
@@ -17,26 +25,36 @@ const Chat = () => {
       })}
     >
       <Header />
-      <Box className={classes.boxChat}>
-        <Box className={classes.boxRight}>
-          <Box className={classes.boxMessageR}>
-            <Typography className={classes.message}>
-              Hola soy emisor y estoy probando los mensajes y ver que tam
-              grandes pueden ser, el mensaje que envie se rompio, pero al
-              parecer este ya no se rompio, sigo probando, hastaa qui todo bien,
-              ajkind sdjn cs dksd ckjs dkjd jch sj xje rvñwe vwejkr vhje
-            </Typography>
-            <Typography className={classes.hour}>12:30</Typography>
-          </Box>
-        </Box>
-        <Box className={classes.boxLeft}>
-          <Box className={classes.boxMessageL}>
-            <Typography className={classes.message}>
-              Hola soy receptor
-            </Typography>
-            <Typography className={classes.hour}>12:30</Typography>
-          </Box>
-        </Box>
+      <Box className={classes.boxChat} ref={chatRef}>
+        {messages.map((item, index) =>
+          item.id === user.uid ? (
+            <Box className={classes.boxRight} key={index}>
+              <Box className={classes.boxMessageR}>
+                <Typography className={classes.message}>
+                  {item.message}
+                </Typography>
+                <Typography variant="caption" className={classes.hour}>
+                  {format(new Date(item.dateMesage), "hh:mm aaaaa'm'")}
+                </Typography>
+              </Box>
+            </Box>
+          ) : (
+            <Box className={classes.boxLeft} key={index}>
+              <Box className={classes.boxMessageL}>
+                <Typography variant="caption" color="primary">
+                  {item.username}
+                </Typography>
+                <Typography className={classes.message}>
+                  {item.message}
+                </Typography>
+                <Typography variant="caption" className={classes.hour}>
+                  {format(new Date(item.dateMesage), "hh:mm aaaaa'm'")}
+                </Typography>
+              </Box>
+            </Box>
+          )
+        )}
+
         <InputMessage />
       </Box>
     </div>

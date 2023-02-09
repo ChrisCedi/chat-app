@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   boxMessageR: {
     maxWidth: 300,
+    minWidth: 100,
     height: "auto",
     padding: theme.spacing(2),
     borderRadius: 10,
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   boxMessageL: {
     maxWidth: 300,
+    minWidth: 100,
     height: "auto",
     padding: theme.spacing(2),
     borderRadius: 10,
@@ -80,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
   },
   boxChat: {
     paddingTop: theme.spacing(7),
+    height: "80vh",
+    overflowY: "scroll",
+    // marginBottom: theme.spacing(10),
   },
 }));
 
